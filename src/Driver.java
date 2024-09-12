@@ -9,7 +9,7 @@
  *
  * @author Kerly Titus
  */
-public class Driver {
+public class Driver extends Thread {
 
     /** 
      * main class

@@ -9,7 +9,7 @@
  *
  * @author Kerly Titus
  */
-public class Network {
+public class Network extends Thread {
     
     private static int maxNbPackets;                           /* Maximum number of simultaneous transactions handled by the network buffer */
     private static int inputIndexClient, inputIndexServer, outputIndexServer, outputIndexClient;                   /* Network buffer indices for accessing the input buffer (inputIndexClient, outputIndexServer) and output buffer (inputIndexServer, outputIndexClient) */
@@ -556,6 +556,7 @@ public class Network {
     	
     	while (true)
     	{
+            System.out.println("Thread running");
 		/* Implement here the code for the run method ... */
     	}    
     }
