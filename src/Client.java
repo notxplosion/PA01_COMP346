@@ -212,7 +212,7 @@ public class Client {
     {   
     	Transactions transact = new Transactions();
     	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
-    
+        
     	/* Implement here the code for the run method ... */
     }
 }

@@ -32,7 +32,7 @@ public class Driver extends Thread {
 
         while (objNetwork.getClientConnectionStatus().equals("connected")
                 && objNetwork.getServerConnectionStatus().equals("connected")) {
-
+                    
         }
 
     }
