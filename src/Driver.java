@@ -30,10 +30,9 @@ public class Driver extends Thread {
         Client in = new Client("receiving");
         Client out = new Client("sending");
 
-        while (objNetwork.getClientConnectionStatus().equals("connected")
-                && objNetwork.getServerConnectionStatus().equals("connected")) {
+        while (objNetwork.getClientConnectionStatus().equals("connected") && objNetwork.getServerConnectionStatus().equals("connected")) {
                     
         }
-
+        System.exit(0);
     }
 }
