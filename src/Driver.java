@@ -27,12 +27,15 @@ public class Driver extends Thread {
         Server objServer = new Server();
         /* Complete here the code for the main method ... */
 
+        // SELF IMPLEMENTING BEGIN
         Client in = new Client("receiving");
         Client out = new Client("sending");
 
-        while (objNetwork.getClientConnectionStatus().equals("connected") && objNetwork.getServerConnectionStatus().equals("connected")) {
-                    
-        }
-        System.exit(0);
+        objServer.start();
+        in.start();
+        out.start();
+        
+        
+        System.exit(1);
     }
 }

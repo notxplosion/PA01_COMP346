@@ -1,12 +1,12 @@
 --NETWORK--
-Activating the network ...
+Activating the network ... V
 // Network() Constructor
 
 --SERVER--
-Initializing the server ...
-Activating network components for server...
+Initializing the server ... V
+Activating network components for server... V
 // call Network("server")
-Inializing the Accounts database ...
+Inializing the Accounts database ... V
 // initializeAccount() Server method
 Connecting server to network ...
 

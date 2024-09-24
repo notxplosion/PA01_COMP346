@@ -554,7 +554,7 @@ public class Network extends Thread {
     {	
     	System.out.println("\n DEBUG : Network.run() - starting network thread");
     	
-    	while (true)
+    	while (getClientConnectionStatus().equals("connected") && getServerConnectionStatus().equals("connected"))
     	{
             System.out.println("Thread running");
 		/* Implement here the code for the run method ... */
