@@ -28,10 +28,10 @@ public class Driver extends Thread {
         /* Complete here the code for the main method ... */
 
         // SELF IMPLEMENTING BEGIN
+        objServer.start();
         Client in = new Client("receiving");
         Client out = new Client("sending");
 
-        objServer.start();
         in.start();
         out.start();
         

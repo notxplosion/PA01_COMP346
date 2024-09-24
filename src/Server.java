@@ -129,7 +129,7 @@ public class Server extends Thread{
         
         try
         {
-         inputStream = new Scanner(new FileInputStream("/src/account.txt"));
+         inputStream = new Scanner(new FileInputStream("account.txt"));
         }
         catch(FileNotFoundException e)
         {
