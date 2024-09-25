@@ -33,6 +33,7 @@ public class Driver extends Thread {
         Client out = new Client("sending");
 
         in.start();
+
         out.start();
         
         
