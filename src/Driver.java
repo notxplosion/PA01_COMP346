@@ -9,7 +9,7 @@
  *
  * @author Kerly Titus
  */
-public class Driver extends Thread {
+public class Driver {
 
     /**
      * main class
@@ -29,14 +29,12 @@ public class Driver extends Thread {
 
         // SELF IMPLEMENTING BEGIN
         objServer.start();
-        Client in = new Client("receiving");
-        Client out = new Client("sending");
 
-        in.start();
+        Client out = new Client("sending");
+        Client in = new Client("receiving");
 
         out.start();
-        
-        
-        System.exit(1);
+        in.start();
+       
     }
 }

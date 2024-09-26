@@ -166,7 +166,6 @@ public class Client extends Thread {
             objNetwork.send(transaction[i]);                            /* Transmit current transaction */
             i++;
          }
-         
     }
          
  	/** 
@@ -211,28 +210,36 @@ public class Client extends Thread {
     public void run()
     {   
     	Transactions transact = new Transactions();
-    	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
-        
-        
+    	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;        
         
         // SELF IMPLEMENTING BEGIN
         /* Implement here the code for the run method ... */
-        if (clientOperation == "sending") {
-            for (int i = 0 ; i < objNetwork.getMaxNbPackets(); i++) {
-                sendClientStartTime = System.currentTimeMillis();
-                sendTransactions();
-                sendClientEndTime = System.currentTimeMillis();
+        System.out.println("\n DEBUG : Client.run() - starting client sending thread connected");
+        
+        while(true) {
+            if (clientOperation.equals("sending")) {
+                if (objNetwork.getInBufferStatus().equals("full")) {
+                    Thread.yield();
+                } else {
+                    for (int i = 0 ; i < objNetwork.getMaxNbPackets(); i++) {
+                        sendClientStartTime = System.currentTimeMillis();
+                        sendTransactions();
+                        sendClientEndTime = System.currentTimeMillis();
+                    }
+                }
+            }
+    
+            if (clientOperation.equals("receiving")) {
+                if (objNetwork.getOutBufferStatus().equals("empty")) {
+                    Thread.yield();
+                } else {
+                    for (int i = 0 ; i < objNetwork.getMaxNbPackets(); i++) {
+                        receiveClientStartTime = System.currentTimeMillis();
+                        receiveTransactions(transact);
+                        receiveClientEndTime = System.currentTimeMillis();
+                    }
+                }
             }
         }
-
-        if (clientOperation == "receiving") {
-            for (int i = 0 ; i < objNetwork.getMaxNbPackets(); i++) {
-                receiveClientStartTime = System.currentTimeMillis();
-                receiveTransactions(transact);
-                receiveClientEndTime = System.currentTimeMillis();
-            }
-        }
-
-    	
     }
 }
